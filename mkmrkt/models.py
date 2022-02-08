@@ -18,8 +18,10 @@ CATEGORY_CHOICES = {
     ('OT', 'Other')
 }
 
-# MAY NOT NEED USERNAME AND PASSWORD HERE,... accounts
-class User(models.Model):
+# MAY NOT NEED USERNAME AND PASSWORD HERE,... account
+# models.user
+
+class User(models.User):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
@@ -29,6 +31,7 @@ class User(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Address(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -43,12 +46,14 @@ class Address(models.Model):
     def __str__(self):
         return self.name
 
+
 class Product(models.Model):
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=225, db_index=True)
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='assets/')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -57,24 +62,26 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+
 class OrderItem(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=10, decimal_places=2)                        
+    price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.IntegerField(default=1)
 
     def __str__(self):
         return self.name
 
+
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     item = models.ManyToManyField(OrderItem)
-    first_name = models.CharField(max_length=60)
-	last_name = models.CharField(max_length=60)
-	email = models.EmailField()
-	address = models.CharField(max_length=150)
-	postal_code = models.CharField(max_length=30)
-	city = models.CharField(max_length=100)
+    guest_first_name = models.CharField(max_length=60)
+    guest_last_name = models.CharField(max_length=60)
+    email = models.EmailField()
+    address = models.CharField(max_length=150)
+    postal_code = models.CharField(max_length=30)
+    city = models.CharField(max_length=100)
     start_date = models.DateTimeField(auto_now_add=True)
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default=False)
