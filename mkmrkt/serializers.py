@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import User, Address, Product, OrderItem, Order
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UsersSerializer(serializers.HyperlinkedModelSerializer):
     addresses = serializers.HyperlinkedRelatedField(
         view_name='address_detail'
     )
@@ -17,8 +17,15 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username')
-     #    determine auth model
+        fields = ('username', 'password')
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        password = validated_data.pop('password')
+        user = User(**validated_data)
+        user.set_password(password)
+        user.save()
+        return user
 
 
 class AddressSerializer(serializers.HyperlinkedModelSerializer):

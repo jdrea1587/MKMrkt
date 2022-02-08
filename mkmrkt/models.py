@@ -18,16 +18,13 @@ CATEGORY_CHOICES = {
     ('OT', 'Other')
 }
 
-# MAY NOT NEED USERNAME AND PASSWORD HERE,... account
-# models.user
-
 class User(models.User):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    username = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
+    # username = models.CharField(max_length=100)
+    # password = models.CharField(max_length=100)
+    # email = models.CharField(max_length=100)
+    # first_name = models.CharField(max_length=100)
+    # last_name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -46,7 +43,6 @@ class Address(models.Model):
     def __str__(self):
         return self.name
 
-
 class Product(models.Model):
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -56,8 +52,10 @@ class Product(models.Model):
     image = models.ImageField(upload_to='assets/')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    in_stock = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
