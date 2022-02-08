@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mkmrkt',
     'corsheaders',
     'rest_framework',
+    'mkmrkt',
+    'mkmrkt.user'
 ]
 
 MIDDLEWARE = [
@@ -58,18 +59,19 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'mkmrkt_django.urls'
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "https://domain.com",
-    "https://api.domain.com",
-    "http://localhost:8080",
-    "http://127.0.0.1:9000"
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
@@ -126,6 +128,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'mkmrkt_user.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
