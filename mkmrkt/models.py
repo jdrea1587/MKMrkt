@@ -18,10 +18,9 @@ CATEGORY_CHOICES = {
     ('OT', 'Other')
 }
 
-# MAY NOT NEED USERNAME AND PASSWORD HERE
+# MAY NOT NEED USERNAME AND PASSWORD HERE,... accounts
 class User(models.Model):
-    user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
     first_name = models.CharField(max_length=100)
@@ -32,8 +31,7 @@ class User(models.Model):
         return self.name
 
 class Address(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                            on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     address_line1 = models.CharField(max_length=100)
     address_line2 = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
@@ -60,8 +58,7 @@ class Product(models.Model):
         return self.name
 
 class OrderItem(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                            on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)                        
     quantity = models.IntegerField(default=1)
@@ -70,8 +67,7 @@ class OrderItem(models.Model):
         return self.name
 
 class Order(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                            on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     item = models.ManyToManyField(OrderItem)
     first_name = models.CharField(max_length=60)
 	last_name = models.CharField(max_length=60)
