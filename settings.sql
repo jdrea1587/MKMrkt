@@ -1,4 +1,4 @@
 -- settings.sql
-CREATE DATABASE mkmkrt;
-CREATE USER mkmkrtuser WITH PASSWORD 'mkmkrt';
-GRANT ALL PRIVILEGES ON DATABASE mkmkrt TO mkmkrtuser;
+CREATE DATABASE mkmrkt;
+CREATE USER mkmrktuser WITH PASSWORD 'mkmrkt';
+GRANT ALL PRIVILEGES ON DATABASE mkmrkt TO mkmrktuser;

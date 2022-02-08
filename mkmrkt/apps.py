@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class MkmkrtConfig(AppConfig):
+class MkmrktConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'mkmkrt'
+    name = 'mkmrkt'
