@@ -1,5 +1,15 @@
-import { createStore } from 'redux'
+// import { createStore, combineReducers, applyMiddleware } from 'redux'
+// import { composeWithDevTools } from 'redux-devtools-extension'
+// import PostReducer from './reducers/PostReducer'
+// import CommentReducer from './reducers/CommentReducer'
+// import thunk from 'redux-thunk'
 
-const store = createStore(() => ({})) // Create store accepts a function as an argument, this setup is just temporary until we set up reducers.
-
-export default store
+// const store = createStore(
+//     combineReducers({
+//       postState: PostReducer,
+//       commentState: CommentReducer
+//     }),
+//     composeWithDevTools(applyMiddleware(thunk)))
+  
+  
+//   export default store
