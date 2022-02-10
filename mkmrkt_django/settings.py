@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'mkmrkt',
-    'mkmrkt.user'
 ]
 
 MIDDLEWARE = [
@@ -59,12 +58,11 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'mkmrkt_django.urls'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    )
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }
 
 CORS_ALLOWED_ORIGINS = [
@@ -94,7 +92,6 @@ CORS_ALLOW_HEADERS = [
     'content-type',
     'dnt',
     'origin',
-    'user-agent',
     'x-csrftoken',
     'x-requested-with',
 ]
@@ -128,7 +125,6 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = 'mkmrkt_user.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -170,6 +166,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA_URL = '/assets/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'assets/')

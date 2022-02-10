@@ -1,58 +1,37 @@
 from rest_framework import serializers
-from .models import User, Address, Product, OrderItem, Order
-
-
-class UsersSerializer(serializers.HyperlinkedModelSerializer):
-    addresses = serializers.HyperlinkedRelatedField(
-        view_name='address_detail'
-    )
-
-    orders = serializers.HyperlinkedRelatedField(
-        view_name='order_detail'
-    )
-
-    user_url = serializers.ModelSerializer.serializer_url_field(
-        view_name ='user_detail'
-    )
-
-    class Meta:
-        model = User
-        fields = ('username', 'password')
-        extra_kwargs = {'password': {'write_only': True}}
-
-    def create(self, validated_data):
-        password = validated_data.pop('password')
-        user = User(**validated_data)
-        user.set_password(password)
-        user.save()
-        return user
-
+from .models import Address, Product, OrderItem, Order
+from rest_framework import serializers
 
 class AddressSerializer(serializers.HyperlinkedModelSerializer):
-    users = serializers.HyperlinkedRelatedField(
-        view_name ='user_detail'
-    )
 
     orders = serializers.HyperlinkedRelatedField(
-        view_name ='order_detail'
+        view_name ='order_detail',
+        many=True,
+        read_only=True,
     )
 
     address_url = serializers.ModelSerializer.serializer_url_field(
-        view_name ='address_detail'
+        view_name ='address_detail',
+        many=True,
+        read_only=True,
     )
 
     class Meta:
         model = Address
-        fields = ('users', 'address_line1', 'address_line2', 'city', 'orders'
+        fields = ('address_line1', 'address_line2', 'city', 'orders'
                   'postal_code', 'country', 'mobile', 'address_type', 'address_url')
 
 class ProductSerializer(serializers.HyperlinkedModelSerializer):             
     order_item = serializers.HyperlinkedRelatedField(
-        view_name ='order_item_detail'
+        view_name ='order_item_detail',
+        many=True,
+        read_only=True,
     )
 
     product_url = serializers.ModelSerializer.serializer_url_field(
-        view_name ='product_detail'
+        view_name ='product_detail',
+        many=True,
+        read_only=True,
     )
 
     class Meta:
@@ -62,15 +41,21 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 class OrderItemSerializer(serializers.HyperlinkedModelSerializer):
 
     products = serializers.HyperlinkedRelatedField(
-        view_name='product_detail'
+        view_name='product_detail',
+        many=True,
+        read_only=True,
     )
 
     orders = serializers.HyperlinkedRelatedField(
-        view_name='order_detail'
+        view_name='order_detail',
+        many=True,
+        read_only=True,
     )
 
     order_item_url = serializers.ModelSerializer.serializer_url_field(
-        view_name='order_item_detail'
+        view_name='order_item_detail',
+        many=True,
+        read_only=True,
     )
 
     class Meta:
@@ -80,20 +65,22 @@ class OrderItemSerializer(serializers.HyperlinkedModelSerializer):
 
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
 
-    users = serializers.HyperlinkedRelatedField(
-        view_name ='user_detail'
-    )
-
     orderitem = serializers.HyperlinkedRelatedField(
-        view_name='orderitem_detail'
+        view_name='orderitem_detail',
+        many=True,
+        read_only=True,
     )
 
     addresses = serializers.HyperlinkedRelatedField(
-        view_name='address_detail'
+        view_name='address_detail',
+        many=True,
+        read_only=True,
     )
 
     order_url = serializers.ModelSerializer.serializer_url_field(
-        view_name='order_detail'
+        view_name='order_detail',
+        many=True,
+        read_only=True,
     )
 
     class Meta:
