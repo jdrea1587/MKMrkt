@@ -1,45 +1,18 @@
-import React from "react";
-import "./index.css"
-import Card from "./components/Card";
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home';
+import React from 'react';
 
 function App() {
   return (
-    <div className="container">
-      <div className="row">
-        <Card
-          name="Spiny Shell"
-          description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-          images="../assets/spinyshell.jpeg"
-          price="5,999"
-          available={true}
-        />
-        
-        <Card
-          name="Spiny Shell"
-          description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-          images="../assets/spinyshell.jpeg"
-          price="5,999"
-          available={true}
-        />
-
-<Card
-          name="Spiny Shell"
-          description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-          images="../assets/spinyshell.jpeg"
-          price="5,999"
-          available={true}
-        />
-
-<Card
-          name="Spiny Shell"
-          description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-          images="../assets/spinyshell.jpeg"
-          price="5,999"
-          available={true}
-        />
-      </div>
+    <div>
+      <header>
+        <h1>Welcome to The Mario Kart Black Market!</h1>
+      </header>
+      <Routes>
+        <Route path="/" element={< Home />} />
+      </Routes>
     </div>
-  );
+  )
 }
 
 export default App;
