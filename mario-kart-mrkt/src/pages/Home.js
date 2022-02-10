@@ -1,9 +1,12 @@
 import React from "react";
 import "../index.css"
 import Card from "../components/Card";
-import shellImg from '../assets/spinyshell.jpeg'
+// import shellImg from '../assets/spinyshell.jpeg'
+let shellImg = require("../assets/spinyshell.jpeg")
+
 
 function Home() {
+    
     return (
 
         <div className="container">
@@ -11,33 +14,37 @@ function Home() {
                 <Card
                     name="Spiny Shell"
                     description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-                    images={shellImg}
+                    images="./assets/spinyshell.jpeg"
                     price="5,999"
                     available={true}
+                    alt="Spiny Shell"
                 />
 
                 <Card
                     name="Spiny Shell"
                     description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-                    images={shellImg}
+                    images="./assets/spinyshell.jpeg"
                     price="5,999"
                     available={true}
+                    alt="Spiny Shell"
                 />
 
                 <Card
                     name="Spiny Shell"
                     description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-                    images={shellImg}
+                    images="./assets/spinyshell.jpeg"
                     price="5,999"
                     available={true}
+                    alt="Spiny Shell"
                 />
 
                 <Card
                     name="Spiny Shell"
                     description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-                    images={shellImg}
+                    images="./assets/spinyshell.jpeg"
                     price="5,999"
                     available={true}
+                    alt="Spiny Shell"
                 />
             </div>
         </div>

@@ -30,4 +30,4 @@ const ProductReducer = (state = iState, action) => {
     }
 }
 
-export default PostReducer
+export default ProductReducer

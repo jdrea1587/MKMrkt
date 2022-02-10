@@ -21,5 +21,6 @@
 ### ***Getting Started***
 ##### A Trello board was used to keep track of development progress and can be viewed here [here](https://trello.com/b/NG5P8qug/m-krt-mrkt)
 ***
-![Component Hierarchy Diagram](../MKMrkt/assets/CHD.jpeg)
-![Entity Relationship Diagram](../MKMrkt/assets/ERD.jpeg)
+***Credits***
+#### GA Wiki: [GA](https://github.com/SEI-R-11-8/class_wiki)
+#### Styling: [Youtube](https://www.youtube.com/watch?v=NJtTAlDxFWo)
