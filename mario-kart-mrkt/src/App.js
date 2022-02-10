@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./index.css"
+import Card from "./components/Card";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="row">
+        <Card
+          name="Spiny Shell"
+          description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
+          images="../assets/spinyshell.jpeg"
+          price="5,999"
+        />
+        
+        <Card
+          name="Spiny Shell"
+          description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
+          images="../assets/spinyshell.jpeg"
+          price="5,999"
+        />
+
+<Card
+          name="Spiny Shell"
+          description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
+          images="../assets/spinyshell.jpeg"
+          price="5,999"
+        />
+
+<Card
+          name="Spiny Shell"
+          description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
+          images="../assets/spinyshell.jpeg"
+          price="5,999"
+        />
+      </div>
     </div>
   );
 }
