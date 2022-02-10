@@ -11,6 +11,7 @@ function App() {
           description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
           images="../assets/spinyshell.jpeg"
           price="5,999"
+          available={true}
         />
         
         <Card
@@ -18,6 +19,7 @@ function App() {
           description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
           images="../assets/spinyshell.jpeg"
           price="5,999"
+          available={true}
         />
 
 <Card
@@ -25,6 +27,7 @@ function App() {
           description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
           images="../assets/spinyshell.jpeg"
           price="5,999"
+          available={true}
         />
 
 <Card
@@ -32,6 +35,7 @@ function App() {
           description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
           images="../assets/spinyshell.jpeg"
           price="5,999"
+          available={true}
         />
       </div>
     </div>
