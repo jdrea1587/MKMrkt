@@ -1,10 +1,8 @@
 from django.shortcuts import render
-
 # Create your views here.
 from rest_framework import generics
-from .serializers import ProductSerializer, OrderSerializer
-from .models import Product, Order
-
+from .serializers import ProductSerializer, OrderSerializer, OrderItemSerializer
+from .models import Product, Order, OrderItem
 
 
 class ProductList(generics.ListCreateAPIView):
@@ -25,3 +23,11 @@ class OrderList(generics.ListCreateAPIView):
 class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+
+class OrderItemList(generics.ListCreateAPIView):
+    queryset = OrderItem.objects.all()
+    serializer_class = OrderItemSerializer
+
+class OrderItemDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OrderItem.objects.all()
+    serializer_class = OrderItemSerializer
