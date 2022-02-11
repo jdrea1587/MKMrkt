@@ -14,7 +14,6 @@ const mapDispatchToProps = (dispatch) => {
         fetchProducts: () => dispatch(LoadProducts()),
     }
 }
-
 function Home(props) {
     console.log(props)
     useEffect(() => {
