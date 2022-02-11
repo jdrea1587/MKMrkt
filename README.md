@@ -29,3 +29,4 @@
 #### W3Schools: [W3Schools](https://www.w3schools.com/)
 #### Styling: [Youtube](https://www.youtube.com/watch?v=NJtTAlDxFWo)
 #### Mario Kart Items: [Mario](https://mariokart.fandom.com/wiki/Item)
+#### Stack: [Stack](https://stackoverflow.com/)

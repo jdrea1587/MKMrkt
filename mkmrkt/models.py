@@ -51,7 +51,7 @@ class Product(models.Model):
 
 class OrderItem(models.Model):
     # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    # product = models.ForeignKey(Product, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.IntegerField(default=1)
 
@@ -61,7 +61,7 @@ class OrderItem(models.Model):
 
 class Order(models.Model):
     # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    item = models.ManyToManyField(OrderItem)
+    # item = models.ManyToManyField(OrderItem)
     guest_first_name = models.CharField(max_length=60)
     guest_last_name = models.CharField(max_length=60)
     email = models.EmailField()
