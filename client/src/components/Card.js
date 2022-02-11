@@ -10,10 +10,10 @@ export default function Card(props) {
             <div className="wrapper">
                 <div className={newClassName}>
                     <div className="card_img" style={{ "backgroundImage": bg_img }}>
-                        <img alt="item"
+                        {/* <img alt="item"
                             className="photo"
                             src={props.image}
-                        />
+                        /> */}
                     </div>
                     <div className="heart">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
