@@ -18,15 +18,13 @@ CATEGORY_CHOICES = {
     ('OT', 'Other'),
 }
 
-
-
 class Product(models.Model):
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=225, db_index=True)
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='assets/')
+    image = models.ImageField(upload_to='images/')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
     in_stock = models.BooleanField(default=True)
