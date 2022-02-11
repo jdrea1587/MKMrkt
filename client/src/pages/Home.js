@@ -27,8 +27,9 @@ function Home(props) {
             <div className="row">
                 {
                     props.productState.products.map((product) => (
-                        
+                            
                         <Card
+                            
                             key={product.id}
                             name={product.name}
                             description={product.description}
@@ -36,14 +37,10 @@ function Home(props) {
                             image={product.image}
                             available={product.available}
                         />
-                        
-                        
                     )
                     )}
-
-
-
             </div>
+
         </div>
     );
 }
