@@ -29,9 +29,11 @@ function Home(props) {
                     props.productState.products.map((product) => (
                         
                         <Card
+                            key={product.id}
                             name={product.name}
                             description={product.description}
                             price={product.price}
+                            image={product.image}
                             available={product.available}
                         />
                         
