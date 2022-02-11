@@ -23,4 +23,9 @@
 ***
 ***Credits***
 #### GA Wiki: [GA](https://github.com/SEI-R-11-8/class_wiki)
+#### CSS Tricks: [CSS-Tricks](https://css-tricks.com/snippets/css/complete-guide-grid)
+#### Markdown Guide: [ia.net](https://ia.net/writer/support/general/markdown-guide)
+#### Markdown Cheatsheet: [GitHub](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
+#### W3Schools: [W3Schools](https://www.w3schools.com/)
 #### Styling: [Youtube](https://www.youtube.com/watch?v=NJtTAlDxFWo)
+#### Mario Kart Items: [Mario](https://mariokart.fandom.com/wiki/Item)
