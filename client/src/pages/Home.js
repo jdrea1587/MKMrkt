@@ -1,71 +1,43 @@
 import React from "react";
+import { useEffect } from 'react';
+import { connect } from 'react-redux'
 import "../index.css"
-import Card from "../components/Card";
+// import Card from "../components/Card";
+import { LoadProducts } from "../store/actions/ProductAction";
 
-function Home() {
-    
+const mapStateToProps = ({ productState }) => {
+    return { productState }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchProducts: () => dispatch(LoadProducts()),
+    }
+}
+
+function Home(props) {
+    console.log(props)
+    useEffect(() => {
+        props.fetchProducts()
+    }, [])
+
     return (
 
         <div className="container">
             <div className="row">
-                <Card
-                    name="Spiny Shell"
-                    description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-                    images="../assets/spinyshell.jpeg"
-                    price="5,999"
-                    available={true}
-                    alt="Spiny Shell"
-                />
+                {/* {
+                    props.productsState.products.map((product) => (
 
-                <Card
-                    name="Spiny Shell"
-                    description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-                    images="../assets/spinyshell.jpeg"
-                    price="5,999"
-                    available={true}
-                    alt="Spiny Shell"
-                />
+                        <p>{product.name}</p>
 
-                <Card
-                    name="Spiny Shell"
-                    description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-                    images="../assets/spinyshell.jpeg"
-                    price="5,999"
-                    available={true}
-                    alt="Spiny Shell"
-                />
+                    )
+                    )} */}
 
-                <Card
-                    name="Spiny Shell"
-                    description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-                    images="../assets/spinyshell.jpeg"
-                    price="5,999"
-                    available={true}
-                    alt="Spiny Shell"
-                />
 
-<Card
-                    name="Spiny Shell"
-                    description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-                    images="../assets/spinyshell.jpeg"
-                    price="5,999"
-                    available={true}
-                    alt="Spiny Shell"
-                />
 
-<Card
-                    name="Spiny Shell"
-                    description="Although the Spiny Shell has taken on many different forms and variations throughout the series, its main objective has always remained the same: to utterly obliterate the front runner in the race."
-                    images="../assets/spinyshell.jpeg"
-                    price="5,999"
-                    available={true}
-                    alt="Spiny Shell"
-                />
-
-                
             </div>
         </div>
     );
 }
 
-export default Home;
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from .models import Address, Product, OrderItem, Order
-from rest_framework import serializers
 
 class AddressSerializer(serializers.HyperlinkedModelSerializer):
 
@@ -22,29 +21,29 @@ class AddressSerializer(serializers.HyperlinkedModelSerializer):
                   'postal_code', 'country', 'mobile', 'address_type', 'address_url')
 
 class ProductSerializer(serializers.HyperlinkedModelSerializer):             
-    order_item = serializers.HyperlinkedRelatedField(
-        view_name ='order_item_detail',
-        many=True,
-        read_only=True,
-    )
+    # order_item = serializers.HyperlinkedRelatedField(
+    #     view_name ='order_item_detail',
+    #     many=True,
+    #     read_only=True,
+    # )
 
     product_url = serializers.ModelSerializer.serializer_url_field(
         view_name ='product_detail',
-        many=True,
-        read_only=True,
+        # many=True,
+        # read_only=True,
     )
 
     class Meta:
         model = Product
-        fields = ('category', 'name', 'slug', 'description', 'image', 'price', 'available', 'order_item', 'product_url' )
+        fields = ('category', 'name', 'slug', 'description', 'image', 'price', 'available', 'in_stock', 'is_active', 'created', 'product_url' )
 
 class OrderItemSerializer(serializers.HyperlinkedModelSerializer):
 
-    products = serializers.HyperlinkedRelatedField(
-        view_name='product_detail',
-        many=True,
-        read_only=True,
-    )
+    # products = serializers.HyperlinkedRelatedField(
+    #     view_name='product_detail',
+    #     many=True,
+    #     read_only=True,
+    # )
 
     orders = serializers.HyperlinkedRelatedField(
         view_name='order_detail',

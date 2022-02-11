@@ -18,7 +18,7 @@ export const GetProductsById = async (id) => {
     }
 }
 
-export const NewProducts = async (newProduct) => {
+export const NewProduct = async (newProduct) => {
     try {
         const res = await Client.product(`/products`, newProduct)
         return res.data.products
