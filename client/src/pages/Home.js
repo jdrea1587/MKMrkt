@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from 'react';
 import { connect } from 'react-redux'
 import "../index.css"
-// import Card from "../components/Card";
+import Card from "../components/Card";
 import { LoadProducts } from "../store/actions/ProductAction";
 
 const mapStateToProps = ({ productState }) => {
@@ -14,6 +14,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchProducts: () => dispatch(LoadProducts()),
     }
 }
+
 function Home(props) {
     console.log(props)
     useEffect(() => {
@@ -24,13 +25,19 @@ function Home(props) {
 
         <div className="container">
             <div className="row">
-                {/* {
-                    props.productsState.products.map((product) => (
-
-                        <p>{product.name}</p>
-
+                {
+                    props.productState.products.map((product) => (
+                        
+                        <Card
+                            name={product.name}
+                            description={product.description}
+                            price={product.price}
+                            available={product.available}
+                        />
+                        
+                        
                     )
-                    )} */}
+                    )}
 
 
 
