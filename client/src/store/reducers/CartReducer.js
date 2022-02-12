@@ -1,14 +1,24 @@
-const {
-	REMOVE_FROM_CART,
-	ADD_QUANTITY,
-	ADD_TO_CART,
-	SUB_QUANTITY,
-	EMPTY_CART,
-} = require('../types');
+const { REMOVE_FROM_CART, ADD_TO_CART, UPDATE_QUANTITY, EMPTY_CART } = require('../types');
 
 const iState = {
-	products: [],
+	cart: {},
 };
+
+// cart will have:
+// id (orderId)
+// products = [...array of OrderItems linked to this order]
+// first_name
+// last_name
+// email
+// address
+// postal_code
+// city
+// ordered
+
+//action:
+// 1. AddAddress update all fields
+// 2. PlaceOrder will change ordered to True and clear cart.
+
 const CartReducer = (state = iState, action) => {
 	switch (action.type) {
 		case ADD_TO_CART:
@@ -25,14 +35,8 @@ const CartReducer = (state = iState, action) => {
 					product.id === action.id ? { ...product, selected: false, quantity: 1 } : product
 				),
 			};
-		case ADD_QUANTITY:
-			return {
-				...state,
-				products: state.products.map((product) =>
-					product.id === action.id ? { ...product, quantity: product.quantity + 1 } : product
-				),
-			};
-		case SUB_QUANTITY:
+
+		case UPDATE_QUANTITY:
 			return {
 				...state,
 				products: state.products.map((product) =>
