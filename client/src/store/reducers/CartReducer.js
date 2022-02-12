@@ -15,7 +15,7 @@ const iState = {
 // city
 // ordered
 
-//action:
+//actions to add:
 // 1. AddAddress update all fields
 // 2. PlaceOrder will change ordered to True and clear cart.
 

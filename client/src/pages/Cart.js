@@ -26,7 +26,7 @@ const Cart = () => {
 				height: '100vh',
 			}}
 		>
-			<h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, totam.</h1>
+			<h1>Your cart is empty! You're a window shopper.</h1>
 		</div>
 	);
 };
