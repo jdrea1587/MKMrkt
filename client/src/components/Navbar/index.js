@@ -6,8 +6,8 @@ import logo from './assets/marioLogo.jpeg';
 const StyledLogo = styled.img`
     width: 50px;
     height: 50px;
-    margin: 10px;
-    padding: 3px;
+    margin: 5px;
+    padding: 2px;
     border: 3px solid black;
     @media (max-width: 500px) {
         font-size: 1rem;
