@@ -1,29 +1,32 @@
-export const addToCart = (id) => {
+// import {
+//     GetProducts, GetProductBySlug, NewProduct, UpdateProduct, DeleteProduct
+// } from '../../services/CartService'
+import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_QUANTITY, SUB_QUANTITY, EMPTY_CART } from '../types';
+
+export const addToCart = (orderId, productId) => {
 	return {
 		type: ADD_TO_CART,
-		id,
+		orderId,
+		productId,
 	};
 };
-export const removeFromCart = (id) => {
+export const removeFromCart = (orderItemId) => {
 	return {
 		type: REMOVE_FROM_CART,
-		id,
+		orderItemId,
 	};
 };
-export const subtractQuantity = (id) => {
+export const updateQuantity = (orderItemId, quantity) => {
 	return {
-		type: SUB_QUANTITY,
-		id,
+		type: UPDATE_QUANTITY,
+		orderItemId,
+		quantity,
 	};
 };
-export const addQuantity = (id) => {
-	return {
-		type: ADD_QUANTITY,
-		id,
-	};
-};
-export const emptyCart = () => {
+
+export const emptyCart = (orderId) => {
 	return {
 		type: EMPTY_CART,
+		orderId,
 	};
 };
