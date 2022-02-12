@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from 'react';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import "../index.css"
 import Card from "../components/Card";
 import { LoadProducts } from "../store/actions/ProductAction";
@@ -26,15 +27,16 @@ function Home(props) {
             <div className="row">
                 {
                     props.productState.products.map((product) => (
-                            
-                        <Card
-                            key={product.slug}
-                            name={product.name}
-                            description={product.description}
-                            price={product.price}
-                            image={product.image}
-                            available={product.available}
-                        />
+                        <Link to={`/productview/${product.id}`} key={product.id} product={product} >
+                            <Card
+                                key={product.slug}
+                                name={product.name}
+                                description={product.description}
+                                price={product.price}
+                                image={product.image}
+                                available={product.available}
+                            />
+                        </Link>
                     )
                     )}
 
