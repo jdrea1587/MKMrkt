@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <header>
-        <h1>Welcome to The Mario Kart Black Market!</h1>
+        <h1 className="welcome">Welcome to The Mario Kart Black Market!</h1>
       </header>
       <Routes>
         <Route path="/" element={< Home />} />

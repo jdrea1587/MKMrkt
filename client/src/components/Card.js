@@ -1,19 +1,12 @@
 import React from 'react'
 
 export default function Card(props) {
-    let newClassName = `color_bg ${props.alt}`
-    let bg_img = `({props.images})`
-    let { name, description, price, available } = props
-    // console.log(bg_img)
+    let {  name, price, available, image } = props
     return (
         <div className="card">
             <div className="wrapper">
-                <div className={newClassName}>
-                    <div className="card_img" style={{ "backgroundImage": bg_img }}>
-                        {/* <img alt="item"
-                            className="photo"
-                            src={props.image}
-                        /> */}
+                <div className="color_bg">
+                    <div className="card_img" >    
                     </div>
                     <div className="heart">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -23,7 +16,10 @@ export default function Card(props) {
                     </div>
                     <div className="cardInfo">
                         <h1>{name}</h1>
-                        <h3>{description}</h3>
+                        <img alt="item"
+                            className="photo"
+                            src={image}
+                        />
                         <p className="available">{available}</p>
                         <div className="priceGroup">
                             <p className="price">{price}</p>

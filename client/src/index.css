@@ -2,7 +2,17 @@
     margin: 0;
     padding: 0;
   }
-  
+
+  img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .welcome{
+    padding: 20px;
+    margin: 30px;
+    text-align:center;
+  }
 
   .container {
     width: 100%;

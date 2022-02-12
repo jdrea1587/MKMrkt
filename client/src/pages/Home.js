@@ -20,7 +20,6 @@ function Home(props) {
     useEffect(() => {
         props.fetchProducts()
     }, [])
-
     return (
 
         <div className="container">
@@ -29,8 +28,7 @@ function Home(props) {
                     props.productState.products.map((product) => (
                             
                         <Card
-                            
-                            key={product.id}
+                            key={product.slug}
                             name={product.name}
                             description={product.description}
                             price={product.price}
@@ -39,8 +37,8 @@ function Home(props) {
                         />
                     )
                     )}
-            </div>
 
+            </div>
         </div>
     );
 }
