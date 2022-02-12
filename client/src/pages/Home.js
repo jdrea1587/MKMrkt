@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 function Home(props) {
-    console.log(props)
+    
     useEffect(() => {
         props.fetchProducts()
     }, [])

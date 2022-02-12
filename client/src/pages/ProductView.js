@@ -5,6 +5,7 @@ import { LoadProductBySlug } from '../store/actions/ProductAction'
 import styled from 'styled-components'
 
 
+
 const mapStateToProps = ({ productState }) => {
     return { productState }
 }
@@ -14,15 +15,16 @@ const mapDispatchToProps = (dispatch) => {
         fetchProduct: (id) => dispatch(LoadProductBySlug(id)),
     }
 }
+
 function ProductView({ fetchProduct, productState }) {
 
     useEffect(() => {
         fetchProduct(id)
-        console.log('this is productstate', productState.product)
     }, [])
     const { id } = useParams()
     const { name, description, image } = productState.product
 
+    
 
     return (
 
@@ -40,7 +42,7 @@ function ProductView({ fetchProduct, productState }) {
                     {description}
                 </div>
             </div>
-
+           
         </div>
 
     )
