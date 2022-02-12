@@ -29,7 +29,6 @@ function Home(props) {
                     props.productState.products.map((product) => (
                             
                         <Card
-                            
                             key={product.id}
                             name={product.name}
                             description={product.description}
@@ -39,8 +38,8 @@ function Home(props) {
                         />
                     )
                     )}
-            </div>
 
+            </div>
         </div>
     );
 }

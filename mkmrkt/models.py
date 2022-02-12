@@ -38,6 +38,7 @@ class Product(models.Model):
 class Order(models.Model):
     first_name = models.CharField(max_length=60)
     last_name = models.CharField(max_length=60)
+    product = models.ManyToManyField('OrderItem', related_name='ordered_products')
     email = models.EmailField()
     address = models.CharField(max_length=150)
     postal_code = models.CharField(max_length=30)
