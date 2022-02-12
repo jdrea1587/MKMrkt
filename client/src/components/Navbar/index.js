@@ -6,13 +6,26 @@ import {
   Bars,
   NavMenu,
 } from "./NavbarElements";
+import styled from 'styled-components'
+import logo from './assets/marioLogo.jpeg'
+
+
+const StyledLogo = styled.img`
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    padding: 3px;
+    border: 3px solid black;
+    @media (max-width: 500px) {
+        font-size: 1rem;
+`
 
 const Navbar = () => {
     return (
         <>
            <Nav>
             <NavLogo to="/">
-                Logo
+                <StyledLogo src={logo}/>
             </NavLogo>
             <Bars />
 
