@@ -28,5 +28,6 @@
 #### Markdown Cheatsheet: [GitHub](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 #### W3Schools: [W3Schools](https://www.w3schools.com/)
 #### Styling: [Youtube](https://www.youtube.com/watch?v=NJtTAlDxFWo)
+#### Dev: [Article](https://dev.to/stephanieopala/simple-navigation-bar-in-react-js-4d5m)
 #### Mario Kart Items: [Mario](https://mariokart.fandom.com/wiki/Item)
 #### Stack: [Stack](https://stackoverflow.com/)
