@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
     width: 100%;
     margin: auto;
     padding: 20px;
-    border: 2px solid black;
+    border: 7px outset lightgrey;
     box-shadow: 5px;
 `
 const StyledName = styled.h1`
@@ -34,6 +34,15 @@ const StyledPhoto = styled.img`
 const StyledDescription = styled.h2`
     color: #000;
     font-weight: 300;
+    @media (max-width: 500px) {
+        font-size: 1rem;
+}   
+`
+const StyledPrice = styled.h2`
+    color: #000;
+    font-weight: 600;
+    padding: 5px;
+    margin: 4px;
     @media (max-width: 500px) {
         font-size: 1rem;
 }   
@@ -71,7 +80,9 @@ function ProductView({ fetchProduct, productState }) {
                     {description}
                 </StyledDescription>
                 <div>
-                    {price}
+                    <StyledPrice>
+                        ${price}
+                    </StyledPrice>
                 </div>
             </StyledContainer>
         </StyledRoot>
