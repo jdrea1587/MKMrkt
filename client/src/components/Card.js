@@ -1,13 +1,12 @@
 import React from 'react'
 
 export default function Card(props) {
-    let { name, price, available } = props
+    let {  name, price, available, image } = props
     return (
         <div className="card">
             <div className="wrapper">
                 <div className="color_bg">
-                    <div className="card_img" >
-                        
+                    <div className="card_img" >    
                     </div>
                     <div className="heart">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -19,7 +18,7 @@ export default function Card(props) {
                         <h1>{name}</h1>
                         <img alt="item"
                             className="photo"
-                            src={props.image}
+                            src={image}
                         />
                         <p className="available">{available}</p>
                         <div className="priceGroup">

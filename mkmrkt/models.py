@@ -38,7 +38,7 @@ class Product(models.Model):
 class Order(models.Model):
     first_name = models.CharField(max_length=60)
     last_name = models.CharField(max_length=60)
-    product = models.ManyToManyField('OrderItem', related_name='ordered_products')
+    products = models.ManyToManyField('OrderItem', related_name='orderitems', blank=True)
     email = models.EmailField()
     address = models.CharField(max_length=150)
     postal_code = models.CharField(max_length=30)
@@ -51,7 +51,7 @@ class Order(models.Model):
         return self.name
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='orderitems')
     product = models.ForeignKey(Product, related_name='order_items', on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.IntegerField(default=1)
