@@ -74,12 +74,12 @@
     z-index: 1;
     width: 25px;
     height: 25px;
-    color: #fff;
+    color: black;
   }
   
   .wrapper .heart svg, .wrapper .heart path, .wrapper .heart circle {
     stroke: currentColor;
-    fill: transparent;
+    fill:#000;
   }
   
   .wrapper .heart:hover {
