@@ -11,6 +11,7 @@ const buttons = [
           <FaCommentAlt /> 0 Comments
         </>
       ),
+      onClick: onCommentClick,
     },
     {
       label: (
@@ -18,6 +19,7 @@ const buttons = [
           <FaThumbsUp /> 242 Likes
         </>
       ),
+      onClick: onLikesClick,
     },
     {
       label: (
@@ -25,8 +27,10 @@ const buttons = [
           <FaRegEye /> 187288 Views
         </>
       ),
+      onClick: onViewsClick,
     },
   ]
+
 
   
   
