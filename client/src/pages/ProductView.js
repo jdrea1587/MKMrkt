@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { LoadProductBySlug } from '../store/actions/ProductAction'
-import { Link, useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
 
 
 const mapStateToProps = ({ productState }) => {
@@ -14,15 +14,35 @@ const mapDispatchToProps = (dispatch) => {
         fetchProduct: (id) => dispatch(LoadProductBySlug(id)),
     }
 }
-function ProductView({fetchProduct, productState}) {
+function ProductView({ fetchProduct, productState }) {
 
-
+    useEffect(() => {
+        fetchProduct(id)
+        console.log('this is productstate', productState.product)
+    }, [])
     const { id } = useParams()
-    console.log(id)
-    fetchProduct(id)
-    console.log(productState)
+    const { name, description, image } = productState.product
+
+
     return (
-        <div>ProductView</div>
+
+        <div>
+
+            <div style={{ color: '#000' }}>
+                <h2>{name}</h2>
+                <div>
+                    <img alt="item"
+                        className="photo"
+                        src={image}
+                    />
+                </div>
+                <div>
+                    {description}
+                </div>
+            </div>
+
+        </div>
+
     )
 }
 

@@ -27,7 +27,7 @@ function Home(props) {
             <div className="row">
                 {
                     props.productState.products.map((product) => (
-                        <Link to={`/productview/${product.slug}`} key={product.id} product={product} >
+                        <Link to={`/productview/${product.id}`} key={product.id} product={product} >
                             <Card
                                 key={product.slug}
                                 name={product.name}
