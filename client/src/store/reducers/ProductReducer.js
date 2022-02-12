@@ -1,4 +1,4 @@
-const { PRODUCT_LOADING_TYPE, GET_PRODUCTS, GET_PRODUCTS_BY_ID, UPDATE_PRODUCT, NEW_PRODUCT, DELETE_PRODUCT } = require('../types')
+const { PRODUCT_LOADING_TYPE, GET_PRODUCTS, GET_PRODUCT_BY_SLUG, UPDATE_PRODUCT, NEW_PRODUCT, DELETE_PRODUCT } = require('../types')
 
 const iState = {
     product: {},
@@ -12,7 +12,7 @@ const ProductReducer = (state = iState, action) => {
             return { ...state, productsLoading: action.payload }
         case GET_PRODUCTS:
             return { ...state, products: action.payload }
-        case GET_PRODUCTS_BY_ID:
+        case GET_PRODUCT_BY_SLUG:
             return { ...state, product: action.payload }
         case NEW_PRODUCT:
             return { ...state, products: [...state.products, action.payload] }

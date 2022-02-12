@@ -9,10 +9,10 @@ export const GetProducts = async () => {
     }
 }
 
-export const GetProductsById = async (id) => {
+export const GetProductBySlug = async (id) => {
     try {
         const res = await Client.get(`/products/${id}`)
-        return res.data.products
+        return res.data
     } catch (error) {
         throw error
     }

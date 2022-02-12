@@ -1,5 +1,7 @@
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
+
 
 # Create your models here.
 
@@ -22,7 +24,7 @@ class Product(models.Model):
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, db_index=True)
-    slug = models.SlugField(max_length=225, db_index=True)
+    slug = models.SlugField(max_length=225, db_index=True, unique=True)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/')
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -34,6 +36,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    # def get_absolute_url(self):
+    #     return reverse('product_detail', kwargs={'slug': self.slug})
 
 class Order(models.Model):
     first_name = models.CharField(max_length=60)

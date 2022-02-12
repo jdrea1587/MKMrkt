@@ -1,7 +1,7 @@
 import {
-    GetProducts, GetProductsById, NewProduct, UpdateProduct, DeleteProduct
+    GetProducts, GetProductBySlug, NewProduct, UpdateProduct, DeleteProduct
 } from '../../services/ProductService'
-import { GET_PRODUCTS, GET_PRODUCTS_BY_ID, NEW_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT } from '../types'
+import { GET_PRODUCTS, GET_PRODUCT_BY_SLUG, NEW_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT } from '../types'
 
 export const LoadProducts = () => {
     return async (dispatch) => {
@@ -17,13 +17,13 @@ export const LoadProducts = () => {
     }
 }
 
-export const LoadProductsById = (id) => {
+export const LoadProductBySlug = (id) => {
     return async (dispatch) => {
         try {
-            const productsById = await GetProductsById(id)
+            const productBySlug = await GetProductBySlug(id)
             dispatch({
-                type: GET_PRODUCTS_BY_ID,
-                payload: productsById
+                type: GET_PRODUCT_BY_SLUG,
+                payload: productBySlug
             })
         } catch (error) {
             throw error

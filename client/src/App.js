@@ -10,7 +10,7 @@ import React from 'react';
 
 function App() {
   return (
-      <>
+    <>
       <header>
         <Navbar />
       </header>
@@ -19,11 +19,11 @@ function App() {
         <Route path="/" element={< Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/Cart" element={<Cart />} />
-        <Route path="/productview/id" element={<ProductView />} />
+        <Route path="/productview/:id" element={<ProductView />} />
       </Routes>
-      </>
+    </>
 
-      )
+  )
 }
 
-      export default App;
+export default App;
