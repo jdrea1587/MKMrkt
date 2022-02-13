@@ -17,18 +17,18 @@ import React from 'react';
 //update amount of items in cart
 
 const Cart = () => {
-	return (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				height: '100vh',
-			}}
-		>
-			<h1>Your cart is empty! You're a window shopper.</h1>
-		</div>
-	);
+  return (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+      }}
+    >
+      <h1>Your cart is empty! You're a window shopper.</h1>
+    </div>
+  );
 };
 
 export default Cart;

@@ -14,19 +14,19 @@ const StyledLogo = styled.img`
 `;
 
 const Navbar = () => {
-	return (
-		<>
-			<Nav>
-				<NavLogo to='/'>
-					<StyledLogo src={logo} />{' '}
-				</NavLogo>{' '}
-				<Bars />
-				<NavMenu>
-					<NavLink to='/'> Home </NavLink> <NavLink to='/about'> About </NavLink>{' '}
-					<NavLink to='/cart'> Cart </NavLink>{' '}
-				</NavMenu>{' '}
-			</Nav>{' '}
-		</>
-	);
+  return (
+    <>
+      <Nav>
+        <NavLogo to='/'>
+          <StyledLogo src={logo} />{' '}
+        </NavLogo>{' '}
+        <Bars />
+        <NavMenu>
+          <NavLink to='/'> Home </NavLink> <NavLink to='/about'> About </NavLink>{' '}
+          <NavLink to='/cart'> Cart </NavLink>{' '}
+        </NavMenu>{' '}
+      </Nav>{' '}
+    </>
+  );
 };
 export default Navbar;
