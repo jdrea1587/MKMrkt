@@ -24,7 +24,14 @@ function Order({ cart }) {
   // }
   // console.log(totalSum)
 
-  return <div className='cartstatus'></div>;
+  return (
+    <div className='cartstatus'>
+      <div>
+        <h1>Savvy</h1>
+        <button>Checkout</button>
+      </div>
+    </div>
+  );
 }
 
 export default Order;
