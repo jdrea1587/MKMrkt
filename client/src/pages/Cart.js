@@ -1,5 +1,9 @@
 import React from 'react';
-
+import Card from '../components/Card';
+import EmptyCart from '../components/EmptyCart';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { LoadAddToCart } from '../store/actions/CartAction';
 //Backend
 //Create Cart reducer with actions which creates order
 //1. Create new order action
@@ -16,7 +20,21 @@ import React from 'react';
 //calculate total cost of products in order
 //update amount of items in cart
 
-const Cart = () => {
+const mapStateToProps = ({ cartState }) => {
+  return { cartState };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchCart: () => dispatch(LoadAddToCart()),
+  };
+};
+
+const Cart = (props) => {
+  console.log('props.fetchcart', props.fetchCart);
+  console.log('props', props);
+  console.log('cartstate', props.cartState);
+
   return (
     <div
       style={{
@@ -26,9 +44,11 @@ const Cart = () => {
         height: '100vh',
       }}
     >
-      <h1>Your cart is empty! You're a window shopper.</h1>
+      <EmptyCart />
+
+      <Card />
     </div>
   );
 };
 
-export default Cart;
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

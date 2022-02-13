@@ -19,40 +19,41 @@ const StyledTitle = styled.h1`
 `;
 
 const mapStateToProps = ({ productState }) => {
-	return { productState };
+  return { productState };
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		fetchProducts: () => dispatch(LoadProducts()),
-	};
+  return {
+    fetchProducts: () => dispatch(LoadProducts()),
+  };
 };
 
 function Home(props) {
-	useEffect(() => {
-		props.fetchProducts();
-	}, []);
-	return (
-		<>
-			<StyledTitle>MarioKart Blk Mrkt</StyledTitle>
-			<div className='container'>
-				<div className='row'>
-					{props.productState.products.map((product) => (
-						<Link to={`/productview/${product.id}`} key={product.id} product={product}>
-							<Card
-								key={product.slug}
-								name={product.name}
-								description={product.description}
-								price={product.price}
-								image={product.image}
-								available={product.available}
-							/>
-						</Link>
-					))}
-				</div>
-			</div>
-		</>
-	);
+  useEffect(() => {
+    props.fetchProducts();
+  }, [props]);
+
+  return (
+    <>
+      <StyledTitle>MarioKart Blk Mrkt</StyledTitle>
+      <div className='container'>
+        <div className='row'>
+          {props.productState.products.map((product) => (
+            <Link to={`/productview/${product.id}`} key={product.id} product={product}>
+              <Card
+                key={product.slug}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+                image={product.image}
+                available={product.available}
+              />
+            </Link>
+          ))}
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
