@@ -9,7 +9,7 @@ import {
 } from '../../services/CartService';
 
 import {
-  NEW_CART,
+  UPDATE_CART,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   UPDATE_QUANTITY,
@@ -19,6 +19,20 @@ import {
 } from '../types';
 
 //orderItem = {OrderItem obj} //orderId = IF there's already a cart
+export const LoadCart = (id) => {
+  return async (dispatch) => {
+    try {
+      const cart = await GetCartById({ id });
+      dispatch({
+        type: UPDATE_CART,
+        payload: cart,
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
 export const LoadAddToCart = (productId, orderId) => {
   return async (dispatch) => {
     try {
@@ -33,7 +47,7 @@ export const LoadAddToCart = (productId, orderId) => {
       } else {
         const cart = await CreateNewCart();
         dispatch({
-          type: NEW_CART,
+          type: UPDATE_CART,
           payload: cart.data.id,
         });
         const orderItem = await AddOrderItem({ productId, orderId: cart.data.id });
