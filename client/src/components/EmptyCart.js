@@ -3,7 +3,7 @@ import '../index.css';
 
 export default function EmptyCart() {
   return (
-    <div className='emptyCart'>
+    <div className='cartstatus'>
       {' '}
       <h2>
         Your cart is empty! <br /> You're a window shopper.

@@ -1,5 +1,5 @@
 const {
-  NEW_CART,
+  UPDATE_CART,
   REMOVE_FROM_CART,
   ADD_TO_CART,
   UPDATE_QUANTITY,
@@ -27,8 +27,8 @@ const iState = {};
 
 const CartReducer = (state = iState, action) => {
   switch (action.type) {
-    case NEW_CART:
-      return { ...state, id: action.payload };
+    case UPDATE_CART:
+      return action.payload;
     case ADD_TO_CART:
       return { ...state, products: [...state.products, action.payload] };
     case REMOVE_FROM_CART:
