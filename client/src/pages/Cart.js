@@ -63,14 +63,22 @@ const Cart = (props) => {
       }}
     >
       {products?.length > 0 ? (
-        products.map((product) => {
-          <Card />;
-        })
+        products.map((product) => (
+          <div>
+            <Card
+              key={product.slug}
+              name={product.name}
+              description={product.description}
+              price={product.price}
+              image={product.image}
+              available={product.available}
+            />
+            <Order cart={props.cartState} />
+          </div>
+        ))
       ) : (
         <EmptyCart />
       )}
-
-      <Order />
     </div>
   );
 };

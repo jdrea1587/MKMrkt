@@ -226,7 +226,7 @@ path svg .outCart:hover {
   width: 100%;
 }
 
-.emptyCart {
+.cartstatus {
   border: 5px outset lightgrey;
 }
 
