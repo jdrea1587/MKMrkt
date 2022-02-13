@@ -1,4 +1,5 @@
 const {
+  NEW_CART,
   REMOVE_FROM_CART,
   ADD_TO_CART,
   UPDATE_QUANTITY,
@@ -26,10 +27,15 @@ const iState = {};
 
 const CartReducer = (state = iState, action) => {
   switch (action.type) {
+    case NEW_CART:
+      return { ...state, id: action.payload };
     case ADD_TO_CART:
-      return { ...state, products: [...state.products, action.orderItem] };
+      return { ...state, products: [...state.products, action.payload] };
     case REMOVE_FROM_CART:
-      return { ...state, products: state.products.filter((product) => product.id !== action.id) };
+      return {
+        ...state,
+        products: state.products.filter((product) => product.id !== action.payload),
+      };
     case UPDATE_QUANTITY:
       return {
         ...state,
@@ -37,7 +43,7 @@ const CartReducer = (state = iState, action) => {
           product.id === action.id
             ? {
                 ...product,
-                quantity: action.quantity,
+                quantity: action.payload,
               }
             : product
         ),
@@ -47,13 +53,13 @@ const CartReducer = (state = iState, action) => {
     case ADD_USER_INFO:
       return {
         ...state,
-        first_name: action.first_name,
-        last_name: action.last_name,
-        email: action.email,
-        address: action.address,
-        postal_code: action.postal_code,
-        city: action.city,
-        ordered: action.ordered,
+        first_name: action.payload.first_name,
+        last_name: action.payload.last_name,
+        email: action.payload.email,
+        address: action.payload.address,
+        postal_code: action.payload.postal_code,
+        city: action.payload.city,
+        ordered: action.payload.ordered,
       };
     case PLACE_ORDER:
       return {
