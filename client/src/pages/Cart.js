@@ -1,9 +1,17 @@
 import React from 'react';
 import Card from '../components/Card';
+import Order from '../components/Order';
 import EmptyCart from '../components/EmptyCart';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { LoadAddToCart } from '../store/actions/CartAction';
+import {
+  LoadCart,
+  LoadRemoveFromCart,
+  LoadUpdateQuantity,
+  LoadEmptyCart,
+  LoadAddUserInfo,
+  LoadPlaceOrder,
+} from '../store/actions/CartAction';
 //Backend
 //Create Cart reducer with actions which creates order
 //1. Create new order action
@@ -20,13 +28,20 @@ import { LoadAddToCart } from '../store/actions/CartAction';
 //calculate total cost of products in order
 //update amount of items in cart
 
+// const [cart, setCart] = useState()
+
 const mapStateToProps = ({ cartState }) => {
   return { cartState };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCart: () => dispatch(LoadAddToCart()),
+    fetchCart: (id) => dispatch(LoadCart(id)),
+    // deleteItemInCart: (orderItemId) => dispatch(LoadRemoveFromCart(orderItemId)),
+    // updateCart: (orderItemId, quantity) => dispatch(LoadUpdateQuantity(orderItemId, quantity)),
+    // emptyCart: (orderId) => dispatch(LoadEmptyCart(orderId)),
+    // addUserInfo: () => dispatch (LoadAddUserInfo()),
+    // playOrder: () => dipatch (LoadPlaceOrder())
   };
 };
 
@@ -34,6 +49,9 @@ const Cart = (props) => {
   console.log('props.fetchcart', props.fetchCart);
   console.log('props', props);
   console.log('cartstate', props.cartState);
+  const { products } = props.cartState;
+
+  useEffect(() => {}, []);
 
   return (
     <div
@@ -44,9 +62,15 @@ const Cart = (props) => {
         height: '100vh',
       }}
     >
-      <EmptyCart />
+      {products?.length > 0 ? (
+        products.map((product) => {
+          <Card />;
+        })
+      ) : (
+        <EmptyCart />
+      )}
 
-      <Card />
+      <Order />
     </div>
   );
 };

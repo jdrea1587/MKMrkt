@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
 function Home(props) {
   useEffect(() => {
     props.fetchProducts();
-  }, [props]);
+  }, []);
 
   return (
     <>
