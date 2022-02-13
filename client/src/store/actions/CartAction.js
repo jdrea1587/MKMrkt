@@ -1,6 +1,12 @@
-// import {
-//     GetProducts, GetProductBySlug, NewProduct, UpdateProduct, DeleteProduct
-// } from '../../services/CartService'
+import {
+  AddOrderItem,
+  DeleteOrderItem,
+  UpdateOrderItem,
+  EmptyCart,
+  GetCartById,
+  CreateNewCart,
+} from '../../services/CartService';
+
 import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
