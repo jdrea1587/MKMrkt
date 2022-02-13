@@ -1,17 +1,17 @@
 import Client from '.';
 
-export const GetCartById = async (id) => {
+export const CreateNewCart = async () => {
   try {
-    const res = await Client.get(`/orders/${id}`);
+    const res = await Client.post('/orders/');
     return res.data;
   } catch (error) {
     throw error;
   }
 };
 
-export const CreateNewCart = async () => {
+export const GetCartById = async (id) => {
   try {
-    const res = await Client.post('/orders/');
+    const res = await Client.get(`/orders/${id}`);
     return res.data;
   } catch (error) {
     throw error;
@@ -31,6 +31,15 @@ export const AddOrderItem = async (newItem) => {
 export const UpdateOrderItem = async (id) => {
   try {
     const res = await Client.put(`/orderitem/${id}`);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const UpdateOrder = async (id) => {
+  try {
+    const res = await Client.put(`/orders/${id}`);
     return res.data;
   } catch (error) {
     throw error;

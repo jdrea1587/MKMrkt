@@ -1,233 +1,245 @@
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 img {
-	width: 180px;
-	height: 180px;
+  width: 180px;
+  height: 180px;
 }
 
 .welcome {
-	padding: 20px;
-	margin: 30px;
-	text-align: center;
+  padding: 20px;
+  margin: 30px;
+  text-align: center;
 }
 
 .container {
-	width: 100%;
-	height: 100%;
-	padding: 20px 0;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .row {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	flex-wrap: wrap;
-	-ms-flex-pack: distribute;
-	justify-content: space-around;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
 }
 
 .card {
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
-	width: 300px;
+  -webkit-transition: ease all 0.3s;
+  transition: ease all 0.3s;
+  width: 300px;
 }
 
 .wrapper {
-	margin: 60px 10px 10px;
-	padding-top: 300px;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	position: relative;
-	-webkit-box-shadow: 0 0 20px 10px rgba(25, 25, 25, 0.1);
-	box-shadow: 0 0 20px 10px rgba(25, 25, 25, 0.1);
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+  margin: 60px 10px 10px;
+  padding-top: 300px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-box-shadow: 0 0 20px 10px rgba(25, 25, 25, 0.1);
+  box-shadow: 0 0 20px 10px rgba(25, 25, 25, 0.1);
+  -webkit-transition: ease all 0.3s;
+  transition: ease all 0.3s;
 }
 
 .wrapper:hover {
-	-webkit-transform: translateY(-10px);
-	transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 .wrapper:hover .card_img {
-	height: 350px;
+  height: 350px;
 }
 
 .wrapper .heart {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	z-index: 1;
-	width: 25px;
-	height: 25px;
-	color: black;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  width: 25px;
+  height: 25px;
+  color: black;
 }
 
 .wrapper .heart svg,
 .wrapper .heart path,
 .wrapper .heart circle {
-	stroke: currentColor;
-	fill: #000;
+  stroke: currentColor;
+  fill: #000;
 }
 
 .wrapper .heart:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .color_bg {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 200px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
 }
 
 .card_img {
-	background-size: contain;
-	background-position: center bottom;
-	background-repeat: no-repeat;
-	position: absolute;
-	bottom: calc(100% - 300px);
-	width: 100%;
-	height: 300px;
-	-webkit-transition: ease all 0.3s;
-	transition: ease all 0.3s;
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: calc(100% - 300px);
+  width: 100%;
+  height: 300px;
+  -webkit-transition: ease all 0.3s;
+  transition: ease all 0.3s;
 }
 
 .cardInfo {
-	display: block;
-	padding: 20px 10px 5px 10px;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	font-family: 'Roboto';
-	color: #666;
+  display: block;
+  padding: 20px 10px 5px 10px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+  color: #666;
 }
 
 .cardInfo h1 {
-	font-size: 20px;
-	text-transform: uppercase;
-	text-align: center;
-	font-weight: bold;
-	line-height: 1.3;
-	margin-bottom: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 10px;
 }
 
 .cardInfo p {
-	width: 100%;
-	font-size: 14px;
-	text-align: center;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
 }
 
 .priceGroup {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .priceGroup .price {
-	font-size: 18px;
-	color: #000;
-	text-align: left;
+  font-size: 18px;
+  color: #000;
+  text-align: left;
 }
 
 .priceGroup {
-	color: #000;
-	font-size: 25px;
-	font-weight: 800;
+  color: #000;
+  font-size: 25px;
+  font-weight: 800;
 }
 
 .cart {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	position: relative;
-	width: 35px;
-	height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  width: 35px;
+  height: 35px;
 }
 
 .cart:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .cart svg,
 .cart path,
 .cart circle {
-	stroke: currentColor;
-	fill: transparent;
-	-webkit-transition-delay: 0.2s;
-	transition-delay: 0.2s;
+  stroke: currentColor;
+  fill: transparent;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 
 .photo {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* not working */
 svg.outCart:hover {
-	color: grey;
-	fill: grey;
+  color: grey;
+  fill: grey;
 }
 
 circle svg .outCart:hover {
-	fill: grey;
+  fill: grey;
 }
 
 path svg .outCart:hover {
-	fill: grey;
+  fill: grey;
 }
 /* not working */
 
+.footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  color: white;
+  background-color: black;
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
 @media screen and (min-width: 1400px) {
-	.container {
-		width: 1370px;
-	}
+  .container {
+    width: 1370px;
+  }
 }
 
 @media screen and (min-width: 1600px) {
-	.container {
-		width: 1570px;
-	}
+  .container {
+    width: 1570px;
+  }
 }
 
 @media screen and (min-width: 1900px) {
-	.container {
-		width: 1870px;
-	}
+  .container {
+    width: 1870px;
+  }
 }
