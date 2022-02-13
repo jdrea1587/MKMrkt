@@ -46,9 +46,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const Cart = (props) => {
-  console.log('props.fetchcart', props.fetchCart);
-  console.log('props', props);
-  console.log('cartstate', props.cartState);
   const { products } = props.cartState;
 
   useEffect(() => {}, []);
