@@ -184,10 +184,6 @@ img {
 	cursor: pointer;
 }
 
-.outCart path circle :hover {
-	color: grey;
-}
-
 .cart svg,
 .cart path,
 .cart circle {
@@ -202,6 +198,21 @@ img {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+/* not working */
+svg.outCart:hover {
+	color: grey;
+	fill: grey;
+}
+
+circle svg .outCart:hover {
+	fill: grey;
+}
+
+path svg .outCart:hover {
+	fill: grey;
+}
+/* not working */
 
 @media screen and (min-width: 1400px) {
 	.container {
