@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import '../index.css';
 import Card from '../components/Card';
 import { LoadProducts } from '../store/actions/ProductAction';
+import { LoadAddToCart } from '../store/actions/CartAction';
 import styled from 'styled-components';
 
 const StyledTitle = styled.h1`
@@ -25,6 +26,7 @@ const mapStateToProps = ({ productState }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => dispatch(LoadProducts()),
+    addToCart: (productId, orderId) => dispatch(LoadAddToCart(productId, orderId)),
   };
 };
 
@@ -47,6 +49,11 @@ function Home(props) {
                 price={product.price}
                 image={product.image}
                 available={product.available}
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log('productId:', product.id, 'cartId', props.cartState?.id);
+                  props.addToCart(product.id, props.cartState?.id);
+                }}
               />
             </Link>
           ))}
