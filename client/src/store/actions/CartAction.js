@@ -90,14 +90,30 @@ export const LoadEmptyCart = (orderId) => {
   };
 };
 
-export const addUserInfo = () => {
-  return {
-    type: ADD_USER_INFO,
+export const LoadAddUserInfo = () => {
+  return async (dispatch) => {
+    try {
+      const something = await UpdateOrder();
+      dispatch({
+        type: ADD_USER_INFO,
+        payload: something,
+      });
+    } catch (error) {
+      throw error;
+    }
   };
 };
 
-export const placeOrder = () => {
-  return {
-    type: PLACE_ORDER,
+export const LoadPlaceOrder = () => {
+  return async (dispatch) => {
+    try {
+      const placedOrder = await GetCartById();
+      dispatch({
+        type: PLACE_ORDER,
+        payload: placedOrder,
+      });
+    } catch (error) {
+      throw error;
+    }
   };
 };
