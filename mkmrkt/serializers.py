@@ -32,11 +32,9 @@ class OrderItemSerializer(serializers.HyperlinkedModelSerializer):
 
     product = serializers.HyperlinkedRelatedField(
         view_name='product_detail',
-        read_only=True,
     )    
     order = serializers.HyperlinkedRelatedField(
         view_name='order_detail',
-        read_only=True,
     )
     orderitem_url = serializers.ModelSerializer.serializer_url_field(
         view_name='orderitem_detail',

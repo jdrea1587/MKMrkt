@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../components/Card';
 import Order from '../components/Order';
 import EmptyCart from '../components/EmptyCart';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
   LoadCart,
@@ -27,8 +27,6 @@ import {
 //if no cart state -> 'no items in cart' : '(mapProductsInCart)'
 //calculate total cost of products in order
 //update amount of items in cart
-
-// const [cart, setCart] = useState()
 
 const mapStateToProps = ({ cartState }) => {
   return { cartState };

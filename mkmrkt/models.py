@@ -2,14 +2,6 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
-
-# Create your models here.
-
-# ADDRESS_CHOICES = (
-#     ('B', 'BILLING'),
-#     ('S', 'SHIPPING'),
-# )
-
 CATEGORY_CHOICES = {
     ('LS', 'Lock-on shot'),
     ('SF', 'Shoots forward'),
@@ -41,14 +33,13 @@ class Product(models.Model):
     #     return reverse('product_detail', kwargs={'slug': self.slug})
 
 class Order(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=60)
-    last_name = models.CharField(max_length=60)
+    first_name = models.CharField(max_length=60, blank=True)
+    last_name = models.CharField(max_length=60, blank=True)
     products = models.ManyToManyField('OrderItem', related_name='orderitems', blank=True)
-    email = models.EmailField()
-    address = models.CharField(max_length=150)
-    postal_code = models.CharField(max_length=30)
-    city = models.CharField(max_length=100)
+    email = models.EmailField(blank=True)
+    address = models.CharField(max_length=150, blank=True)
+    postal_code = models.CharField(max_length=30, blank=True)
+    city = models.CharField(max_length=100, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     ordered = models.BooleanField(default=False)
@@ -57,9 +48,8 @@ class Order(models.Model):
         return str(self.id)
 
 class OrderItem(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True)
     quantity = models.IntegerField(default=1)
 
     def __str__(self):

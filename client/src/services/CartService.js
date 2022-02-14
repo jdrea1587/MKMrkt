@@ -2,9 +2,11 @@ import Client from '.';
 
 export const CreateNewCart = async () => {
   try {
-    const res = await Client.post('/orders/');
+    const res = await Client.post('orders/', {});
+    console.log(res);
     return res.data;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
@@ -21,6 +23,7 @@ export const GetCartById = async (id) => {
 export const AddOrderItem = async (newItem) => {
   try {
     //newItem {orderId: ##, productID: ##}
+    console.log(newItem);
     const res = await Client.post('/orderitem/', newItem);
     return res.data;
   } catch (error) {
