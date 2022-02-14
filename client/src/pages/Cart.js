@@ -25,39 +25,50 @@ const Cart = (props) => {
   return (
     <div
       style={{
+        width: '100%',
+        height: '100%',
+        padding: '20px',
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
+        justifycontent: 'center',
+        alignitems: 'center',
       }}
     >
-      {products?.length > 0 ? (
-        <div>
-          {props.cartState.products.map((product) => {
-            console.log('productstate products', props.productState.products);
-            const prod = props.productState.products.filter(
-              (prod) => prod.product_url === product.product
-            )[0];
-            return (
-              <Card
-                key={prod.slug}
-                name={prod.name}
-                description={prod.description}
-                price={prod.price}
-                image={prod.image}
-                available={prod.available}
-                onClickDelete={(e) => {
-                  e.preventDefault();
-                  props.deleteFromCart(product.id);
-                }}
-              />
-            );
-          })}
-          <Order cart={props.cartState} />
-        </div>
-      ) : (
-        <EmptyCart />
-      )}
+      <div
+        style={{
+          display: 'flex',
+          flexwrap: 'wrap',
+          msflexpack: 'distribute',
+          justifycontent: 'space-around',
+        }}
+      >
+        {products?.length > 0 ? (
+          <div>
+            {props.cartState.products.map((product) => {
+              console.log('productstate products', props.productState.products);
+              const prod = props.productState.products.filter(
+                (prod) => prod.product_url === product.product
+              )[0];
+              return (
+                <Card
+                  key={prod.slug}
+                  name={prod.name}
+                  description={prod.description}
+                  price={prod.price}
+                  image={prod.image}
+                  available={prod.available}
+                  onClickDelete={(e) => {
+                    e.preventDefault();
+                    props.deleteFromCart(product.id);
+                  }}
+                />
+              );
+            })}
+            <Order cart={props.cartState} />
+          </div>
+        ) : (
+          <EmptyCart />
+        )}
+      </div>
     </div>
   );
 };

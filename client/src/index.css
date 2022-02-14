@@ -213,9 +213,12 @@ img {
 }
 
 /* not working */
-svg.outCart:hover {
+.outCart svg:hover {
   color: grey;
-  fill: black;
+  fill: grey;
+}
+.cart svg:focus {
+  background-color: black;
 }
 
 circle svg .outCart:hover {
@@ -241,8 +244,9 @@ path svg .outCart:hover {
 
 .cartstatus {
   border: 5px outset lightgrey;
+  margin: 20px;
+  padding: 20px;
 }
-
 @media screen and (min-width: 1400px) {
   .container {
     width: 1370px;

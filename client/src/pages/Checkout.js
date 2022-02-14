@@ -1,6 +1,7 @@
 import React from 'react';
 import { LoadPlaceOrder } from '../store/actions/CartAction';
 import { connect } from 'react-redux';
+import './styles/pages.css';
 
 const mapStateToProps = ({ cartState }) => {
   return { cartState };
@@ -21,9 +22,9 @@ function Checkout(props) {
   return (
     <div>
       {' '}
-      <div className='form'>
-        <div className='form'>
-          <div className='form'>
+      <div className='formA'>
+        <div className='formB'>
+          <div className='formC'>
             <form onSubmit={props.onSubmit}>
               <div className='input-field'>
                 <input
@@ -85,7 +86,7 @@ function Checkout(props) {
                 />
               </div>
 
-              <button type='submit' onClick={orderReceived}>
+              <button className='button' type='submit' onClick={orderReceived}>
                 Submit
               </button>
             </form>
