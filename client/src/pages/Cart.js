@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '../components/Card';
 import Order from '../components/Order';
 import EmptyCart from '../components/EmptyCart';
+import { LoadProductBySlug } from '../store/actions/ProductAction';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
@@ -28,13 +29,15 @@ import {
 //calculate total cost of products in order
 //update amount of items in cart
 
-const mapStateToProps = ({ cartState }) => {
-  return { cartState };
+const mapStateToProps = ({ productState, cartState }) => {
+  return { productState, cartState };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchCart: (id) => dispatch(LoadCart(id)),
+    fetchProduct: (id) => dispatch(LoadProductBySlug(id)),
+    deleteFromCart: (orderItemId) => dispatch(LoadRemoveFromCart(orderItemId)),
     // deleteItemInCart: (orderItemId) => dispatch(LoadRemoveFromCart(orderItemId)),
     // updateCart: (orderItemId, quantity) => dispatch(LoadUpdateQuantity(orderItemId, quantity)),
     // emptyCart: (orderId) => dispatch(LoadEmptyCart(orderId)),
@@ -46,8 +49,6 @@ const mapDispatchToProps = (dispatch) => {
 const Cart = (props) => {
   const { products } = props.cartState;
 
-  useEffect(() => {}, []);
-
   return (
     <div
       style={{
@@ -58,19 +59,29 @@ const Cart = (props) => {
       }}
     >
       {products?.length > 0 ? (
-        products.map((product) => (
-          <div>
-            <Card
-              key={product.slug}
-              name={product.name}
-              description={product.description}
-              price={product.price}
-              image={product.image}
-              available={product.available}
-            />
-            <Order cart={props.cartState} />
-          </div>
-        ))
+        <div>
+          {props.cartState.products.map((product) => {
+            console.log('productstate products', props.productState.products);
+            const prod = props.productState.products.filter(
+              (prod) => prod.product_url === product.product
+            )[0];
+            return (
+              <Card
+                key={prod.slug}
+                name={prod.name}
+                description={prod.description}
+                price={prod.price}
+                image={prod.image}
+                available={prod.available}
+                onClickDelete={(e) => {
+                  e.preventDefault();
+                  props.deleteFromCart(product.id);
+                }}
+              />
+            );
+          })}
+          <Order cart={props.cartState} />
+        </div>
       ) : (
         <EmptyCart />
       )}

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import '../index.css';
 import Card from '../components/Card';
 import { LoadProducts } from '../store/actions/ProductAction';
-import { LoadAddToCart } from '../store/actions/CartAction';
+import { LoadAddToCart, LoadRemoveFromCart } from '../store/actions/CartAction';
 import styled from 'styled-components';
 
 const StyledTitle = styled.h1`
@@ -27,6 +27,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => dispatch(LoadProducts()),
     addToCart: (productId, orderId) => dispatch(LoadAddToCart(productId, orderId)),
+    deleteFromCart: (orderItemId) => dispatch(LoadRemoveFromCart(orderItemId)),
   };
 };
 
@@ -40,23 +41,35 @@ function Home(props) {
       <StyledTitle>MarioKart Blk Mrkt</StyledTitle>
       <div className='container'>
         <div className='row'>
-          {props.productState.products.map((product) => (
-            <Link to={`/productview/${product.id}`} key={product.id} product={product}>
-              <Card
-                key={product.slug}
-                name={product.name}
-                description={product.description}
-                price={product.price}
-                image={product.image}
-                available={product.available}
-                onClick={(e) => {
-                  e.preventDefault();
-                  props.addToCart(product.product_url, props.cartState?.order_url);
-                  console.log('after', props.cartState);
-                }}
-              />
-            </Link>
-          ))}
+          {props.productState.products.map((product) => {
+            const prodInCart = props.cartState.products?.filter(
+              (prod) => product.product_url === prod.product
+            )[0];
+            return (
+              <Link to={`/productview/${product.id}`} key={product.id} product={product}>
+                <Card
+                  key={product.slug}
+                  name={product.name}
+                  description={product.description}
+                  price={product.price}
+                  image={product.image}
+                  available={product.available}
+                  onClickCart={(e) => {
+                    e.preventDefault();
+                    props.addToCart(product.product_url, props.cartState?.order_url);
+                  }}
+                  onClickDelete={
+                    prodInCart && prodInCart.id
+                      ? (e) => {
+                          e.preventDefault();
+                          props.deleteFromCart(prodInCart.id);
+                        }
+                      : undefined
+                  }
+                />
+              </Link>
+            );
+          })}
         </div>
       </div>
     </>
