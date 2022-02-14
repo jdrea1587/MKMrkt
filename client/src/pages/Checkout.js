@@ -1,7 +1,7 @@
 import React from 'react';
 import { LoadPlaceOrder } from '../store/actions/CartAction';
 import { connect } from 'react-redux';
-import { useEffect } from 'react';
+import './pages.css';
 
 const mapStateToProps = ({ cartState }) => {
   return { cartState };
@@ -14,9 +14,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 function Checkout(props) {
-  console.log('what happens here:', props.cartState.order_url);
-
-  const alert = () => {
+  const event = () => {
     alert('Thanks for doing business!');
   };
 
@@ -87,7 +85,7 @@ function Checkout(props) {
                 />
               </div>
 
-              <button type='submit' onClick={alert}>
+              <button className='button' type='submit' onClick={event}>
                 Submit
               </button>
             </form>

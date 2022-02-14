@@ -21,6 +21,7 @@
 - Django
 - PostgreSQL
 - React
+- Redux
 - Python
 - Express
 
@@ -30,7 +31,25 @@
 
 ##### A Trello board was used to keep track of development progress and can be viewed here [here](https://trello.com/b/NG5P8qug/m-krt-mrkt)
 
+##### The project itself was deployed and can be viewed [here](URL).
+
 ---
+
+### **_Screenshots_**
+
+##### image header 1
+
+![Computer View](./images/pc.jpeg)
+
+##### image header 2
+
+![Mobile View](./images/mobile.jpeg)
+
+### **_Future Updates_**
+
+- [ ] Cart Price
+- [ ] Search Categories
+- [ ] User Authorization
 
 **_Credits_**
 

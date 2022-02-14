@@ -44,7 +44,6 @@ const Cart = (props) => {
         {products?.length > 0 ? (
           <div>
             {props.cartState.products.map((product) => {
-              console.log('productstate products', props.productState.products);
               const prod = props.productState.products.filter(
                 (prod) => prod.product_url === product.product
               )[0];
