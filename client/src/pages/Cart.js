@@ -5,14 +5,7 @@ import EmptyCart from '../components/EmptyCart';
 import { LoadProductBySlug } from '../store/actions/ProductAction';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import {
-  LoadCart,
-  LoadRemoveFromCart,
-  LoadUpdateQuantity,
-  LoadEmptyCart,
-  LoadAddUserInfo,
-  LoadPlaceOrder,
-} from '../store/actions/CartAction';
+import { LoadCart, LoadRemoveFromCart, LoadUpdateQuantity } from '../store/actions/CartAction';
 //Backend
 //Create Cart reducer with actions which creates order
 //1. Create new order action
@@ -38,6 +31,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchCart: (id) => dispatch(LoadCart(id)),
     fetchProduct: (id) => dispatch(LoadProductBySlug(id)),
     deleteFromCart: (orderItemId) => dispatch(LoadRemoveFromCart(orderItemId)),
+    updateCart: (orderItemId, quantity) => dispatch(LoadUpdateQuantity(orderItemId, quantity)),
     // deleteItemInCart: (orderItemId) => dispatch(LoadRemoveFromCart(orderItemId)),
     // updateCart: (orderItemId, quantity) => dispatch(LoadUpdateQuantity(orderItemId, quantity)),
     // emptyCart: (orderId) => dispatch(LoadEmptyCart(orderId)),

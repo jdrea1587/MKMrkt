@@ -1,4 +1,20 @@
 import React from 'react';
+import { LoadPlaceOrder } from '../store/actions/CartAction';
+import { connect } from 'react-redux';
+
+const mapStateToProps = ({ cartState }) => {
+  return { cartState };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateCart: (id) => dispatch(LoadPlaceOrder(id)),
+  };
+};
+
+const orderReceived = () => {
+  alert('Thank you, your order has been received and is processing');
+};
 
 function Checkout(props) {
   return (
@@ -68,7 +84,9 @@ function Checkout(props) {
                 />
               </div>
 
-              <button type='submit'>Submit</button>
+              <button type='submit' onClick={orderReceived}>
+                Submit
+              </button>
             </form>
           </div>
         </div>
@@ -77,4 +95,4 @@ function Checkout(props) {
   );
 }
 
-export default Checkout;
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
