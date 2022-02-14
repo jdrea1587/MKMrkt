@@ -1,0 +1,1 @@
+web: gunicorn mkmrkt_django.wsgi
