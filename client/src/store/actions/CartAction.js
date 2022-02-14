@@ -33,24 +33,36 @@ export const LoadCart = (id) => {
   };
 };
 
-export const LoadAddToCart = (productId, orderId) => {
+export const LoadAddToCart = (productName, orderId) => {
+  console.log('props', productName, '/', orderId);
   return async (dispatch) => {
     try {
       if (orderId) {
+        console.log('if orderId');
         // create new OrderItem (serv) {productId: ##, orderId: ##}
         // dispatch
-        const orderItem = await AddOrderItem({ productId, orderId });
+        const orderItem = await AddOrderItem({
+          product: productName,
+          order: orderId,
+          quantity: 1,
+        });
         dispatch({
           type: ADD_TO_CART,
           payload: orderItem,
         });
       } else {
+        console.log('newcart');
         const cart = await CreateNewCart();
+        console.log('cart', cart);
         dispatch({
           type: UPDATE_CART,
-          payload: cart.data.id,
+          payload: cart.id,
         });
-        const orderItem = await AddOrderItem({ productId, orderId: cart.data.id });
+        const orderItem = await AddOrderItem({
+          product: { name: productName },
+          order: { id: cart.id },
+          quantity: 1,
+        });
         dispatch({
           type: ADD_TO_CART,
           payload: orderItem,

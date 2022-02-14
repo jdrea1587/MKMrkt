@@ -6,7 +6,7 @@ const buttons = [
   {
     label: (
       <>
-        <AiOutlineDelete /> 187288 Views
+        <AiOutlineDelete /> Delete
       </>
     ),
     onClick: onDeleteClick,

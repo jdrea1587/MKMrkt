@@ -51,8 +51,8 @@ function Home(props) {
                 available={product.available}
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log('productId:', product.id, 'cartId', props.cartState?.id);
-                  props.addToCart(product.id, props.cartState?.id);
+                  console.log('productName:', product.name, 'cartId', props.cartState?.id);
+                  props.addToCart(product.name, props.cartState?.id);
                 }}
               />
             </Link>
