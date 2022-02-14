@@ -135,7 +135,7 @@ export const LoadAddUserInfo = () => {
 export const LoadPlaceOrder = () => {
   return async (dispatch) => {
     try {
-      const placedOrder = await GetCartById();
+      const placedOrder = await UpdateOrder();
       dispatch({
         type: PLACE_ORDER,
         payload: placedOrder,

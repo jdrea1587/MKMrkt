@@ -1,9 +1,6 @@
 import React from 'react';
 import '../index.css';
-import { GetProducts } from '../services/ProductService';
-//total items in cart
-//Total price
-//Checkout button -> form Order info
+import { Link } from 'react-router-dom';
 
 function Order({ cart }) {
   console.log('cart in order', cart);
@@ -18,17 +15,13 @@ function Order({ cart }) {
   //create function that counts number of products in order
   //create function that adds prices.
 
-  // let totalSum = 0.00
-  // for (let price in cart) {
-  //   ++totalSum;
-  // }
-  // console.log(totalSum)
-
   return (
     <div className='cartstatus'>
       <div>
         <h1>Savvy</h1>
-        <button>Checkout</button>
+        <Link to={'/checkout/'}>
+          <button>Checkout</button>
+        </Link>
       </div>
     </div>
   );
