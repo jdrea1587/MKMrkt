@@ -72,7 +72,6 @@ export const LoadRemoveFromCart = (orderItemId) => {
   return async (dispatch) => {
     try {
       const removeItem = await DeleteOrderItem(orderItemId);
-      console.log(removeItem);
       dispatch({
         type: REMOVE_FROM_CART,
         payload: orderItemId,
