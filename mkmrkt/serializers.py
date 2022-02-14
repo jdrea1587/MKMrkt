@@ -24,7 +24,7 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Order
-        fields = ('id', 'first_name', 'last_name', 'email', 'address', 'postal_code', 'city', 'created', 'updated', 'ordered', 'order_url')
+        fields = ('id', 'first_name', 'last_name', 'email', 'address', 'postal_code', 'city', 'created', 'updated', 'ordered', 'products', 'order_url')
         extra_kwargs = {'products': {'required' : False}}
 
 
@@ -32,9 +32,11 @@ class OrderItemSerializer(serializers.HyperlinkedModelSerializer):
 
     product = serializers.HyperlinkedRelatedField(
         view_name='product_detail',
+        queryset=Product.objects.all()
     )    
     order = serializers.HyperlinkedRelatedField(
         view_name='order_detail',
+        queryset=Order.objects.all()
     )
     orderitem_url = serializers.ModelSerializer.serializer_url_field(
         view_name='orderitem_detail',

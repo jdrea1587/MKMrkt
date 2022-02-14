@@ -19,8 +19,8 @@ const StyledTitle = styled.h1`
         font-size: 1rem;
 `;
 
-const mapStateToProps = ({ productState }) => {
-  return { productState };
+const mapStateToProps = ({ productState, cartState }) => {
+  return { productState, cartState };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -51,8 +51,8 @@ function Home(props) {
                 available={product.available}
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log('productName:', product.name, 'cartId', props.cartState?.id);
-                  props.addToCart(product.name, props.cartState?.id);
+                  props.addToCart(product.product_url, props.cartState?.order_url);
+                  console.log('after', props.cartState);
                 }}
               />
             </Link>
