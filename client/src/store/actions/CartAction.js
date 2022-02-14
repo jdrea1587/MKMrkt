@@ -33,17 +33,17 @@ export const LoadCart = (id) => {
   };
 };
 
-export const LoadAddToCart = (productName, orderId) => {
-  console.log('props', productName, '/', orderId);
+export const LoadAddToCart = (product, order) => {
+  console.log('props', product, '/', order);
   return async (dispatch) => {
     try {
-      if (orderId) {
-        console.log('if orderId');
+      if (order) {
+        console.log('if order');
         // create new OrderItem (serv) {productId: ##, orderId: ##}
         // dispatch
         const orderItem = await AddOrderItem({
-          product: productName,
-          order: orderId,
+          product,
+          order,
           quantity: 1,
         });
         dispatch({
@@ -56,13 +56,14 @@ export const LoadAddToCart = (productName, orderId) => {
         console.log('cart', cart);
         dispatch({
           type: UPDATE_CART,
-          payload: cart.id,
+          payload: cart,
         });
         const orderItem = await AddOrderItem({
-          product: { name: productName },
-          order: { id: cart.id },
+          product,
+          order: cart.order_url,
           quantity: 1,
         });
+        console.log(orderItem);
         dispatch({
           type: ADD_TO_CART,
           payload: orderItem,
