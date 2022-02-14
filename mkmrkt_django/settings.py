@@ -16,7 +16,7 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-REACT_APP_DIR = os.path.join(BASE_DIR, 'client')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -61,6 +61,7 @@ ROOT_URLCONF = 'mkmrkt_django.urls'
 
 
 CORS_ALLOWED_ORIGINS = [
+    "https://mkmrktapp.herokuapp.com/",
     "https://example.com",
     "https://sub.example.com",
     "http://localhost:3000",
