@@ -3,7 +3,7 @@ import '../index.css';
 
 const Footer = () => (
   <div className='footer'>
-    <p>Meow or never!</p>
+    <p>Not all treasure is silver and gold, mate.</p>
   </div>
 );
 
