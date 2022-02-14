@@ -21,6 +21,7 @@
 - Django
 - PostgreSQL
 - React
+- Redux
 - Python
 - Express
 
@@ -32,7 +33,22 @@
 
 ---
 
-**_Credits_**
+### **_Screenshots_**
+
+##### image header 1
+
+![Computer View](./images/pc.jpeg)
+
+##### image header 2
+
+![Mobile View](./images/mobile.jpeg)
+
+### **_Future Updates_**
+
+- [ ] Cart Price
+- [ ] Search Categories
+- [ ] User Authorization
+      **_Credits_**
 
 #### GA Wiki: [GA](https://github.com/SEI-R-11-8/class_wiki)
 

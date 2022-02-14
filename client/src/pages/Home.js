@@ -7,6 +7,7 @@ import Card from '../components/Card';
 import { LoadProducts } from '../store/actions/ProductAction';
 import { LoadAddToCart, LoadRemoveFromCart } from '../store/actions/CartAction';
 import styled from 'styled-components';
+import pirateflag from '../assets/pirateFlag.jpeg';
 
 const StyledTitle = styled.h1`
     width: 100%;
@@ -39,6 +40,7 @@ function Home(props) {
   return (
     <>
       <StyledTitle>MarioKart Blk Mrkt</StyledTitle>
+      <img src={pirateflag} alt='pirate flag' />
       <div className='container'>
         <div className='row'>
           {props.productState.products.map((product) => {
