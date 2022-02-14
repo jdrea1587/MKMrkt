@@ -18,7 +18,6 @@ const orderReceived = () => {
 };
 
 function Checkout(props) {
-  console.log('checkout', props);
   return (
     <div>
       {' '}
