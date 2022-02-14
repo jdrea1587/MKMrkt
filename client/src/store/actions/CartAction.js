@@ -121,10 +121,11 @@ export const LoadEmptyCart = (orderId) => {
 export const LoadAddUserInfo = () => {
   return async (dispatch) => {
     try {
-      const something = await UpdateOrder();
+      console.log('tried');
+      const updatedCart = await UpdateOrder();
       dispatch({
         type: ADD_USER_INFO,
-        payload: something,
+        payload: updatedCart,
       });
     } catch (error) {
       throw error;
@@ -132,10 +133,10 @@ export const LoadAddUserInfo = () => {
   };
 };
 
-export const LoadPlaceOrder = () => {
+export const LoadPlaceOrder = (id) => {
   return async (dispatch) => {
     try {
-      const placedOrder = await UpdateOrder();
+      const placedOrder = await UpdateOrder(id);
       dispatch({
         type: PLACE_ORDER,
         payload: placedOrder,

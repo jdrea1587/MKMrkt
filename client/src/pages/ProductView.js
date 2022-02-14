@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { LoadProductBySlug } from '../store/actions/ProductAction';
+import { LoadAddToCart } from '../store/actions/CartAction';
 import styled from 'styled-components';
 
 const StyledRoot = styled.div`
@@ -49,17 +50,18 @@ const StyledPrice = styled.h2`
     font-size: 1rem;
   }
 `;
-const mapStateToProps = ({ productState }) => {
-  return { productState };
+const mapStateToProps = ({ cartState, productState }) => {
+  return { cartState, productState };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProduct: (id) => dispatch(LoadProductBySlug(id)),
+    addToCart: (productId, orderId) => dispatch(LoadAddToCart(productId, orderId)),
   };
 };
 
-function ProductView({ fetchProduct, productState }) {
+function ProductView({ fetchProduct, productState, addToCart, cartState }) {
   useEffect(() => {
     fetchProduct(id);
   }, []);

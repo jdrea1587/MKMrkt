@@ -238,6 +238,8 @@ path svg .outCart:hover {
 
 .cartstatus {
   border: 5px outset lightgrey;
+  margin: 20px;
+  padding: 20px;
 }
 
 @media screen and (min-width: 1400px) {

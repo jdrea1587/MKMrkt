@@ -1,6 +1,7 @@
 import React from 'react';
 import { LoadPlaceOrder } from '../store/actions/CartAction';
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
 
 const mapStateToProps = ({ cartState }) => {
   return { cartState };
@@ -8,21 +9,23 @@ const mapStateToProps = ({ cartState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateCart: (id) => dispatch(LoadPlaceOrder(id)),
+    updateUserInfo: (id) => dispatch(LoadPlaceOrder(id)),
   };
 };
 
-const orderReceived = () => {
-  alert('Thank you, your order has been received and is processing');
-};
-
 function Checkout(props) {
+  console.log('what happens here:', props.cartState.order_url);
+
+  const alert = () => {
+    alert('Thanks for doing business!');
+  };
+
   return (
     <div>
       {' '}
-      <div className='form'>
-        <div className='form'>
-          <div className='form'>
+      <div className='formA'>
+        <div className='formB'>
+          <div className='formC'>
             <form onSubmit={props.onSubmit}>
               <div className='input-field'>
                 <input
@@ -84,7 +87,7 @@ function Checkout(props) {
                 />
               </div>
 
-              <button type='submit' onClick={orderReceived}>
+              <button type='submit' onClick={alert}>
                 Submit
               </button>
             </form>

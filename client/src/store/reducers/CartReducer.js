@@ -59,7 +59,7 @@ const CartReducer = (state = iState, action) => {
         address: action.payload.address,
         postal_code: action.payload.postal_code,
         city: action.payload.city,
-        ordered: action.payload.ordered,
+        ordered: true,
       };
     case PLACE_ORDER:
       return {
